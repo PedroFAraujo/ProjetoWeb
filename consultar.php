@@ -38,38 +38,40 @@
         </div>
         <div class="row bg-white">
             <div class="col text-start">
-                <form name="cadastro" method="POST" action="">
-                    <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">Nome:</label>
-                        <input type="nome" class="form-control" id="exampleFormControlInput1" placeholder="Digite o seu nome completo">
-                    </div>
-                    <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">Telefone:</label>
-                        <input type="telefone" class="form-control" id="exampleFormControlInput1" placeholder="(XX) 00000-0000">
-                    </div>
-                    <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">Origem:</label>
-                        <select class="form-select" aria-label="Default select example">
-                            <option selected>Celular</option>
-                            <option value="Fixo">Fixo</option>
-                            <option value="Whatsapp">Whatsapp</option>
-                            <option value="Facebook">Facebook</option>
-                            <option value="Instagram">Instagram</option>
-                            <option value="Google Meu Negócio">Google Meu Negócio</option>
-                        </select>
-                    </div>
-                    <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">Data do Contato:</label>
-                        <input type="nome" class="form-control" id="exampleFormControlInput1" placeholder="Digite o seu nome completo">
-                    </div>
-                    <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">Observação:</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                    </div>
-                    <div class="mb-3">
-                        <button type="button" class="btn btn-primary">Cadastrar</button>
-                    </div>
-                </form>
+            <p class="fs-2">CONSULTA - CLIENTE</p>
+            </div>
+        </div>
+        <div class="row bg-white">
+            <div class="col text-start">
+                <div class="table-responsive">
+                    <table class="table">
+                    <thead>
+                        <tr>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Telefone</th>
+                        <th scope="col">Ação</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Nome 1</td>
+                            <td>(11)98035-3641</td>
+                            <td>
+                                <button type="button" class="btn btn-primary">Editar</button>
+                                <button type="button" class="btn btn-danger">Excluir</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Nome 2</td>
+                            <td>(11)98415-2578</td>
+                            <td>
+                                <button type="button" class="btn btn-primary">Editar</button>
+                                <button type="button" class="btn btn-danger">Excluir</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
