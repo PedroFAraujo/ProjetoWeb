@@ -1,3 +1,7 @@
+<?php
+    require_once('conexao.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +17,7 @@
             <div class="col">
                 <nav class="navbar navbar-expand-lg bg-primary">
                     <div class="container-fluid">
-                        <a class="navbar-brand link-light" href="#">SISTEMA WEB</a>
+                        <a class="navbar-brand link-light" href="index.php  ">SISTEMA WEB</a>
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                         </button>
@@ -46,29 +50,47 @@
                 <div class="table-responsive">
                     <table class="table">
                     <thead>
-                        <tr>
-                        <th scope="col">Nome</th>
-                        <th scope="col">Telefone</th>
-                        <th scope="col">Ação</th>
+                        <tr class="headerTable">
+                            <th scope="col titleTable">Id</th>
+                            <th scope="col">Nome</th>
+                            <th scope="col">Telefone</th>
+                            <th scope="col">Origem</th>
+                            <th scope="col">Data de Contato</th>
+                            <th scope="col">Observação</th>
+                            <th scope="col">Ação</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Nome 1</td>
-                            <td>(11)98035-3641</td>
-                            <td>
-                                <button type="button" class="btn btn-primary">Editar</button>
-                                <button type="button" class="btn btn-danger">Excluir</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Nome 2</td>
-                            <td>(11)98415-2578</td>
-                            <td>
-                                <button type="button" class="btn btn-primary">Editar</button>
-                                <button type="button" class="btn btn-danger">Excluir</button>
-                            </td>
-                        </tr>
+                        <?php
+                            $sql = "SELECT * FROM clientes";
+                            $result = $pdo->query($sql);
+                            $rows = $result->fetchAll();
+
+                            for($i=0; $i < count($rows); $i++){
+                                
+                                //atribuição dos valores das variáveis com as linhas dos registros 
+                                $id = $rows[$i]['id'];
+                                $nome = $rows[$i]['Nome'];
+                                $telefone = $rows[$i]['Telefone'];
+                                $origem = $rows[$i]['Origem']; 
+                                $dataContato = $rows[$i]['Data de Contato']; 
+                                $observacao = $rows[$i]['Observação']; 
+                                
+                                //imprime a tabela na tela
+                                echo '<tr>
+                                            <td>'.$id.'</td>
+                                            <td>'.$nome.'</td>
+                                            <td>'.$telefone.'</td>
+                                            <td>'.$origem.'</td>
+                                            <td>'.$dataContato.'</td>
+                                            <td>'.$observacao.'</td>
+                                            <td>
+                                            <button class="btn btn-primary"><a class="text-light" href="editar.php?id='.$id.'">Editar</a></button>
+                                            <button class="btn btn-danger"><a class="text-light" href="excluir.php?id='.$id.'">Excluir</a></button>
+                                        </td>
+                                        </tr>';
+                            }
+                        ?>
                     </tbody>
                     </table>
                 </div>

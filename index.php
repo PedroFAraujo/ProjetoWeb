@@ -38,19 +38,19 @@
         </div>
         <div class="row bg-white">
             <div class="col text-start">
-                <form name="cadastro" method="POST" action="">
+                <form name="cadastro" method="POST" action="cadastrarClientes.php">
                     <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">Nome:</label>
-                        <input type="nome" class="form-control" id="exampleFormControlInput1" placeholder="Digite o seu nome completo">
+                        <label for="nome" class="form-label">Nome:</label>
+                        <input type="text" class="form-control" id="nome" name="nome" placeholder="Digite o seu nome completo">
                     </div>
                     <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">Telefone:</label>
-                        <input type="telefone" class="form-control" id="exampleFormControlInput1" placeholder="(XX) 00000-0000">
+                        <label for="telefone" class="form-label">Telefone:</label>
+                        <input type="number" class="form-control" id="telefone" name="telefone" placeholder="(XX) 00000-0000">
                     </div>
                     <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">Origem:</label>
-                        <select class="form-select" aria-label="Default select example">
-                            <option selected>Celular</option>
+                        <label for="origem" class="form-label">Origem:</label>
+                        <select id="origem" name="origem" class="form-select" aria-label="Default select example">
+                            <option value="Celular" selected>Celular</option>
                             <option value="Fixo">Fixo</option>
                             <option value="Whatsapp">Whatsapp</option>
                             <option value="Facebook">Facebook</option>
@@ -59,15 +59,15 @@
                         </select>
                     </div>
                     <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">Data do Contato:</label>
-                        <input type="nome" class="form-control" id="exampleFormControlInput1" placeholder="Digite o seu nome completo">
+                        <label for="dataContato" class="form-label">Data do Contato:</label>
+                        <input type="date" class="form-control" id="dataContato" name="dataContato" placeholder="Digite o seu nome completo">
                     </div>
                     <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">Observação:</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        <label for="observacao" class="form-label">Observação:</label>
+                        <textarea class="form-control" id="observacao" name="observacao" rows="3"></textarea>
                     </div>
                     <div class="mb-3">
-                        <button type="button" class="btn btn-primary">Cadastrar</button>
+                        <button type="submit" class="btn btn-primary">Cadastrar</button>
                     </div>
                 </form>
             </div>
