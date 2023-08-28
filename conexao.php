@@ -1,13 +1,30 @@
-<?php 
-    define("MYSQL_HOST" , 'localhost:3306');
-    define("MYSQL_USER" , 'root');
-    define("MYSQL_PASSWORD" , '');
-    define('MYSQL_DB_NAME', 'db_projetoweb');
+<?php
+    define('SERVIDOR', 'localhost');
+    define('USUARIO', 'root');
+    define('SENHA', '');
+    define('BANCO', 'projetoweb');
 
-    try {
-        $pdo = new PDO('mysql:host=' . MYSQL_HOST . ';dbname=' . MYSQL_DB_NAME , MYSQL_USER , MYSQL_PASSWORD);
-    } catch (PDOException $th) {
-        echo "Erro na conexão : " . $th->getMessage();
+    class Conexao{
+
+        protected $mysqli;
+
+        public function __construct(){
+            $this->conexaoMysql();
+        }
+
+        public function conexaoMysql(){
+            $this->mysqli = new mysqli(SERVIDOR, USUARIO, SENHA, BANCO);
+        }
+
+        public function setAgendamentos($nome, $telefone, $origem, $data_contato, $observacao){
+            $stmt = $this->mysqli->prepare("INSERT INTO agendamentos('nome','telefone','origem','data_contato','observacao') VALUES(?,?,?,?,?)");
+            $stmt->bind_param("sssss",$nome,$telefone,$origem,$data_contato,$observacao);
+            if($stmt->execute() == TRUE){
+                return true;
+            }else{
+                return false;
+            }
+        }
     }
-
+    
 ?>
